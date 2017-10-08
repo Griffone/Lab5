@@ -19,7 +19,7 @@ public class Path {
     public static boolean bPrintFullPath = false;
 
     public final Iterable<Integer> path;
-    public final int length;
+    public final int size;
     public final boolean exists;
     public final double weightLength;
     public final int a, b;
@@ -27,7 +27,7 @@ public class Path {
     private Path(int a, int b, List<Integer> path, boolean exists, double weight) {
         this.path = path;
         this.exists = exists;
-        this.length = (exists) ? path.size() : 0;
+        this.size = (exists) ? path.size() : 0;
         this.weightLength = weight;
         this.a = a;
         this.b = b;
@@ -161,7 +161,7 @@ public class Path {
         if (exists) {
             Iterator<Integer> it = path.iterator();
             sb.append('(').append(a).append(" : ").append(b).append(") ");
-            sb.append('[').append(length).append(" : ").append(weightLength).append("] ");
+            sb.append('[').append(size).append(" : ").append(weightLength).append("] ");
             if (bPrintFullPath) {
                 sb.append(it.next());
                 while (it.hasNext())
